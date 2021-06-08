@@ -1,45 +1,21 @@
-[![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://classroom.github.com/online_ide?assignment_repo_id=428447&assignment_repo_type=GroupAssignmentRepo)
-# Developing Django on Repl.it
+# Team members:
 
-- Fork this template to get started
-- Simply hit run to start the server
-- The server will autoreload as needed. You don't need to restart the server manually.
+- Jawaher Alshammari 2172131039
+- Mohammed Alturki 2182162347
+          
 
-## Add your first view
+# Application Overview
+## Report
 
-1. Create a file under `mysite` named `views.py` with the following contents:
+An Application used to report traffic accidents used by any user, traffic policeman, ambulance, firefighters to know the location or severity of the accident accurately showing on your mobile map without the need to speak with the person reporting and reach it quickly.
 
-```
-from django.http import HttpResponse
+The program enables all citizens to play the role of a police officer. To speed up rescue missions and reduces damages and losses. Citizens can send an incident by attaching a video or a photo, or an audio note. Also, the location of the accident is accurately determined using the location tracking system for the reporting person.
 
 
-def index(request):
-    return HttpResponse("Hello, world.")
-```
+## ER Diagram
 
-2. Add a url pattern under `mysite/urls.py`. It should look like this:
+![تنزيل](https://user-images.githubusercontent.com/81953844/121217365-7215b780-c88a-11eb-9fcf-397f975f7986.png)
 
-```
-from django.contrib import admin
-from django.urls import path
-from . import views
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-]
-```
 
-## Shell
 
-Django utilizes the shell for managing your site. For this click on the `?` in the lower-right corner and click "Workspace shortcuts" from there you can open a new shell pane. 
-
-## Database
-
-By default this template utilizes the sqlite database engine. While this is fine for development it won't work with external users of your app as we don't persist changes to files when they happen outside the development environment. 
-
-We suggest bringing a database using an outside service. 
-
-See Django documentation on how to setup a database: https://docs.djangoproject.com/en/3.0/intro/tutorial02/
-
-based on  amasad/django-template
