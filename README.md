@@ -1,6 +1,6 @@
 # Team members:
 
-- Jawaher Alshammari 2172131039 [ project manager ]
+- Jawaher Alshammari 2172131039 [project manager]
 - Mohammed Alturki 2182162347
           
 
