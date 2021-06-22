@@ -1,4 +1,3 @@
-![Blank diagram (1)](https://user-images.githubusercontent.com/81953844/122884422-d20a6480-d346-11eb-8cb9-f9ea1348f2f7.png)
 # Team members:
 
 - Jawaher Alshammari 2172131039 [project manager]
