@@ -1,3 +1,4 @@
+![Blank diagram (1)](https://user-images.githubusercontent.com/81953844/122884422-d20a6480-d346-11eb-8cb9-f9ea1348f2f7.png)
 # Team members:
 
 - Jawaher Alshammari 2172131039 [project manager]
@@ -28,7 +29,8 @@ The program enables all citizens to play the role of a police officer. To speed 
 
 ## ER Diagram
 
-![dتنزيل (1)](https://user-images.githubusercontent.com/81953844/121227466-426bad00-c894-11eb-95ac-b64eb070f756.png)
+![Blank diagram (1)](https://user-images.githubusercontent.com/81953844/122884459-dcc4f980-d346-11eb-8380-d5d53c143e74.png)
+
 
 
 
