@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Reports</title>
+</head>
+<body>
+  
+
+  <table border=1 align="center">
+    <tr bgcolor="darkgrey">
+      <td colspan=3 align="center"> <strong>All Reports</strong>
+      </td>
+    </tr>
+    <tr bgcolor="lightgrey">
+        <td align="center">#</td>
+        <td align="center">Location</td>
+        <td align="center">Status</td>
+
+    </tr>
+    {% for r in reports %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ r.location }}</td>
+        <td>{{ r.status }}</td>
+      </tr>
+    {% endfor %}
+
+  </table>
+
+
+
+</body>
+</html>
