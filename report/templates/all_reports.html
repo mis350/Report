@@ -10,20 +10,43 @@
 
   <table border=1 align="center">
     <tr bgcolor="darkgrey">
-      <td colspan=3 align="center"> <strong>All Reports</strong>
+      <td colspan=4 align="center"> <strong>All Reports</strong>
       </td>
     </tr>
     <tr bgcolor="lightgrey">
         <td align="center">#</td>
         <td align="center">Location</td>
+        <td align="center">Address</td>
         <td align="center">Status</td>
 
     </tr>
     {% for r in reports %}
+
       <tr>
         <td>{{ forloop.counter }}</td>
         <td>{{ r.location }}</td>
+        <td>{{ r.Accident_Address }}</td>
         <td>{{ r.status }}</td>
+      </tr>
+    {% endfor %}
+
+  </table>
+
+  <table border=1 align="center">
+    <tr bgcolor="darkgrey">
+      <td colspan=3 align="center"> <strong>All Reports</strong>
+      </td>
+    </tr>
+    <tr bgcolor="lightgrey">
+        <td align="center">#</td>
+        <td align="center">Reporter</td>
+
+    </tr>
+    {% for re in reporters %}
+
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ re.name  }}</td>
       </tr>
     {% endfor %}
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <table border=1 align="center">
+    <tr bgcolor="darkgrey">
+      <td colspan=3 align="center"> <strong>{{title}}</strong>
+
+      </td>
+    </tr>
+    <tr bgcolor="lightgrey">
+        <td align="center">#</td>
+        <td align="center">Report</td>
+
+    </tr>
+    {% for a in accident_type %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ a.Accident_type }}</td>
+      </tr>
+    {% endfor %}
+
+  </table>
+
+
+  <h2>Report:</h2>
+  <ul>
+  {% for r in report %}
+    <li>{{ r.Accident_Address }}: {{ r. }}</li>
+  {% endfor %}
+  </ul>
+
+</body>
+</html>
