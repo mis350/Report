@@ -2,13 +2,12 @@ from django.shortcuts import render
 from .models import Report, ReportStatus # , Reporter
 # Create your views here.
 
-#Proplems: location + status + Reporter name
+#Proplems: Reporter name
 def all_reports(request):
   data={}
   reports = Report.objects.all()
   data['reports'] = reports
   return render(request, "all_reports.html", context=data)
-
 
 
 #No need - nothing showing
