@@ -15,6 +15,7 @@
     </tr>
     <tr bgcolor="lightgrey">
         <td align="center">#</td>
+        <td align="center">Reporter</td>
         <td align="center">Location</td>
         <td align="center">Address</td>
         <td align="center">Status</td>
@@ -25,7 +26,12 @@
 
 
       <tr>
-        <td>{{ forloop.counter }}</td>  
+        <td>{{ forloop.counter }}</td> 
+
+      {% for re in reporter %} 
+        <td>{{ re.name }}</td> 
+      {% endfor %}
+      
       {% if r.location == 0 %}
         <td>{{ "Kuwait City" }}</td>        
       {%elif r.location == 1 %}  
