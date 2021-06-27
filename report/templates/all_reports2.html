@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Reports</title>
+</head>
+<body>
+  
+
+  <table border=1 align="center">
+    <tr bgcolor="darkgrey">
+      <td colspan=4 align="center"> <strong>All Reports</strong>
+      </td>
+    </tr>
+    <tr bgcolor="lightgrey">
+        <td align="center">#</td>
+        <td align="center">Reporter</td>
+        <td align="center">Location</td>
+        <td align="center">Address</td>
+        <td align="center">Status</td>
+
+    </tr>
+    {% for r in reports %}
+
+
+
+      <tr>
+        <td>{{ forloop.counter }}</td> 
+
+      {% for re in reporter %} 
+        <td>{{ re.name }}</td> 
+      {% endfor %}
+      
+      {% if r.location == 0 %}
+        <td>{{ "Kuwait City" }}</td>        
+      {%elif r.location == 1 %}  
+        <td>{{ "Al jahra" }}</td>
+      {%elif r.location == 2 %}  
+        <td>{{ "Hawalli" }}</td>
+      {%elif r.location == 3 %}  
+        <td>{{ "Farwaniyah" }}</td>
+      {%elif r.location == 4 %}  
+        <td>{{ "Mubarak Al-Kabeer" }}</td>
+      {%elif r.location == 5 %}  
+        <td>{{ "Al Ahmadi" }}</td>
+      {% endif %}     
+
+
+        <td>{{ r.Accident_Address }}</td>
+
+
+      {% if r.status == 0 %}
+        <td>{{ "Two Car Crash" }}</td>        
+      {%elif r.status == 1 %}  
+        <td>{{ "Multi car crash" }}</td>
+      {%elif r.status == 2 %}  
+        <td>{{ "Car crash with Injury" }}</td>
+      {%elif r.status == 3 %}  
+        <td>{{ "Car crash with Death" }}</td>
+      {%elif r.status == 4 %}  
+        <td>{{ "Car crash with Fire" }}</td>
+      {% endif %}
+      </tr>
+
+
+
+    {% endfor %}
+
+  </table>
+
+
+</body>
+</html>
