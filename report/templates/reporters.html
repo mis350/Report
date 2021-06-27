@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporters</title>
+</head>
+<body>
+  
+
+  <table border=1 align="center">
+    <tr bgcolor="darkgrey">
+      <td colspan=4 align="center"> <strong>Reporters</strong>
+      </td>
+    </tr>
+    <tr bgcolor="lightgrey">
+        <td align="center">#</td>
+        <td align="center">Reporters Name</td>
+        <td align="center">Reporters Civil ID</td>
+
+
+    </tr>
+    {% for re in reporters %}
+
+
+
+      <tr>
+        <td>{{ forloop.counter }}</td>      
+        <td><a href="/report/show/reporter/{{re.civilid}}/">{{ re.name}}</a></td> 
+        <td>{{ re.name}}</td> 
+    {% endfor %}
+
+  </table>
+
+
+</body>
+</html>

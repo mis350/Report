@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Reporter Info</title>
 </head>
 <body>
   <p>reporter: <strong>{{ reporter.name }}</strong></p>
+  <p>reporter: <strong>{{ reporter.civilid}}</strong></p>
 
   <p>Report:</p>
   <ul>
   {% for o in report %}
-    <li><strong>{{ o.Accident_Address }} </strong></li>
+    <li><a href="/report/show/report/{{o.id}}/"<strong>{{ o.Accident_Address }} </strong>></a></li>
   {% endfor %}
   </ul>
 </body>
