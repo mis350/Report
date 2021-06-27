@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from .models import Report, ReportStatus , Reporter , Receiver
 from .models import Roads
-from .forms import ReportForm, ReportstatusForm
+from .forms import ReportForm, ReportstatusForm, ReporterForm
 
 # Create your views here.
 
@@ -144,3 +144,12 @@ def update_status(request):
     f.save()
     return redirect("all-reports")
   return render(request, "update_status.html", context = data)
+
+def add_reporter(request):
+  data={}
+  f = ReporterForm(request.POST or None)
+  data["form"] = f
+  if f.is_valid():
+    f.save()
+    return redirect("all-reporters")
+  return render(request, "add_reporter.html", context = data)

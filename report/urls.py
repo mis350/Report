@@ -7,12 +7,13 @@ urlpatterns = [
     #path('new/reports', views.new_reports),
     path('type/<int:type_id>/', views.accident_type),
     path('show/report/<int:report_id>/', views.report_details),
-    path('show/reporters/', views.reporters),
+    path('show/reporters/', views.reporters, name = "all-reporters"),
     path('show/reporter/<int:reporter_civilid>/', views.reporter_details),
     path('show/receiver/', views.receivers),
     path('all/receiver', views.all_receiver),
     path('all/roads', views.all_roads),
     path('add/report', views.add_report, name = "add-report"),
     path('update/status', views.update_status),
+    path('add/reporter', views.add_reporter),
 
 ]
