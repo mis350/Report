@@ -1,5 +1,8 @@
 from django.shortcuts import render
+
 from .models import Report, ReportStatus , Reporter , Receiver
+from .models import Roads
+
 # Create your views here.
 
 #Proplems: Reporter name
@@ -7,6 +10,7 @@ def all_reports(request):
   data={}
   reports = Report.objects.all()
   data['reports'] = reports
+
   return render(request, "all_reports.html", context=data)
 
 #def all_reports2(request):
@@ -80,3 +84,16 @@ def receiver_details(request, receiver_id):
   data["status"] = status
   #data["reciver"] = reciver
   return render(request, "receiver_details.html", context = data)
+
+
+def all_receiver(request):
+  data={}
+  receiver = Receiver.objects.all
+  data['receiver'] = receiver
+  return render(request, "all_receiver.html", context=data)
+
+def all_roads(request):
+  data={}
+  roads = Roads.objects.all
+  data['roads'] = roads
+  return render(request, "all_roads.html", context=data)
