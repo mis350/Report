@@ -54,10 +54,12 @@ class Report(models.Model):
         (5, "Al Ahmadi"),
     )
 
+
     #Road_name = models.TextField()
     #Accident_type = models.IntegerField(choices=TYPE, default=0)
   #image = models.
     location = models.IntegerField(choices=LOCATION)
+    #location = models.CharField(max_length=50, choices=LOCATION)
     Accident_Address = models.TextField(null=True, blank=True)
     Accident_Describtion = models.TextField(null=True, blank=True)
     status = models.IntegerField(choices=STATUS)
@@ -65,6 +67,7 @@ class Report(models.Model):
     #receiver = models.ForeignKey(Receiver, on_delete=models.CASCADE)
     def __str__(self):
       return self.Accident_Address
+
 
 
 class ReportStatus(models.Model):
