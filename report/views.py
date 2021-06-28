@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 
 from .models import Report, ReportStatus , Reporter , Receiver
-from .models import Roads
 from .forms import ReportForm, ReportstatusForm, ReporterForm
 
 # Create your views here.

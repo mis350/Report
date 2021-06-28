@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Reporter, Report, Receiver, Roads, ReportStatus
+from .models import Reporter, Report, Receiver, ReportStatus
 
 class ReportInLine(admin.TabularInline):
   model = Report
@@ -34,9 +34,7 @@ class ReceiverAdmin(admin.ModelAdmin):
   inlines = (ReportStatusInLine,)
 
 
-@admin.register(Roads)
-class RoadsAdmin(admin.ModelAdmin):
-  pass
+
 
 @admin.register(ReportStatus)
 class ReportStatusAdmin(admin.ModelAdmin):

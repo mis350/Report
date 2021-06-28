@@ -21,18 +21,7 @@ class Receiver(models.Model):
     return self.ResName
   
 
-class Roads(models.Model):
 
-
-  RSTATUS = (
-        (0,"No Traffic Delays"),
-        (1," Medium Amount of Traffic"),
-        (2, " traffic delays"),
-  )
-
-  RoadNo = models.CharField(max_length=50)
-  RoadName = models.TextField(null=False, blank=False)
-  RoadStatus = models.IntegerField(choices=RSTATUS, default=0)
 
 
 
@@ -70,11 +59,12 @@ class Report(models.Model):
     RoadStatus = models.IntegerField(choices=RSTATUS, default=0)
 
     reporter = models.ForeignKey(Reporter, on_delete=models.CASCADE)
-    roads = models.ForeignKey(Roads, on_delete=models.CASCADE)
     receivers = models.ManyToManyField(Receiver, through='ReportStatus')
 
     def __str__(self):
       return self.Accident_Address
+
+
 
 
 
