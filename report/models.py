@@ -55,11 +55,19 @@ class Report(models.Model):
         (5, "Al Ahmadi"),
     )
 
+    RSTATUS = (
+        (0,"No Traffic Delays"),
+        (1," Medium Amount of Traffic"),
+        (2, " traffic delays"),
+    )
+
+
     location = models.IntegerField(choices=LOCATION)
     Accident_Address = models.TextField(null=True, blank=True)
     Accident_Describtion = models.TextField(null=True, blank=True)
     status = models.IntegerField(choices=STATUS)
     created_on = models.DateTimeField(auto_now_add=True)
+    RoadStatus = models.IntegerField(choices=RSTATUS, default=0)
 
     reporter = models.ForeignKey(Reporter, on_delete=models.CASCADE)
     roads = models.ForeignKey(Roads, on_delete=models.CASCADE)
