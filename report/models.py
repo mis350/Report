@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Reporter(models.Model):
- # civilid = models.IntegerField(primary_key=True)
   civilid = models.CharField(max_length=50,primary_key=True)
   name = models.CharField(max_length=50)
   address = models.TextField(null=True, blank=True)
@@ -16,26 +15,28 @@ class Reporter(models.Model):
 class Receiver(models.Model):
   ResCivilId = models.CharField(max_length=50)
   ResName = models.CharField(max_length=50)
+  email = models.EmailField(blank=True, null=True)
 
   def __str__(self):
     return self.ResName
   
 
 class Roads(models.Model):
+
+
+  RSTATUS = (
+        (0,"No Traffic Delays"),
+        (1," Medium Amount of Traffic"),
+        (2, " traffic delays"),
+  )
+
   RoadNo = models.CharField(max_length=50)
   RoadName = models.TextField(null=False, blank=False)
+  RoadStatus = models.IntegerField(choices=RSTATUS, default=0)
 
 
 
 class Report(models.Model):
-
-    #TYPE = (
-       # (0,"New Report"),
-       # (1,"In Progress"),
-       # (2, "Done"),
-   # )
-
-
 
     STATUS = (
         (0,"Two car crash"),
@@ -54,17 +55,16 @@ class Report(models.Model):
         (5, "Al Ahmadi"),
     )
 
-
-    #Road_name = models.TextField()
-    #Accident_type = models.IntegerField(choices=TYPE, default=0)
-  #image = models.
     location = models.IntegerField(choices=LOCATION)
-    #location = models.CharField(max_length=50, choices=LOCATION)
     Accident_Address = models.TextField(null=True, blank=True)
     Accident_Describtion = models.TextField(null=True, blank=True)
     status = models.IntegerField(choices=STATUS)
+    created_on = models.DateTimeField(auto_now_add=True)
+
     reporter = models.ForeignKey(Reporter, on_delete=models.CASCADE)
-    #receiver = models.ForeignKey(Receiver, on_delete=models.CASCADE)
+    roads = models.ForeignKey(Roads, on_delete=models.CASCADE)
+    receivers = models.ManyToManyField(Receiver, through='ReportStatus')
+
     def __str__(self):
       return self.Accident_Address
 
@@ -79,11 +79,9 @@ class ReportStatus(models.Model):
     )
 
     Accident_type = models.IntegerField(choices=TYPE, default=0)
+    updated_on = models.DateTimeField(auto_now=True)
+
     receiver = models.ForeignKey(Receiver, on_delete=models.CASCADE)
     Report = models.ForeignKey(Report, on_delete=models.CASCADE)
-    #Reporter = models.ForeignKey(Reporter, on_delete=models.CASCADE)
-    #def __str__(self):
-      #return self.location
     def __str__(self):
       return self.Report.Accident_Address
-    
