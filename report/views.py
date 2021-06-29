@@ -5,6 +5,9 @@ from .forms import ReportForm, ReporterForm, ReceiverForm
 
 # Create your views here.
 
+
+
+
 #perfect.
 def all_reports(request):
   data={}
@@ -28,6 +31,8 @@ def accident_type(request,type_id):
 
   data["accident_type"] = type_list
   return render(request, "accident_type.html", context = data)
+
+
 
 
 
@@ -107,6 +112,7 @@ def roads(request):
 
 
 
+
 def add_report(request):
   data={}
   f = ReportForm(request.POST or None)
@@ -139,6 +145,7 @@ def add_receiver(request):
   return render(request, "add_receiver.html", context = data)
 
 
+# Edit 
 
 def edit_report(request, report_id):
   r = get_object_or_404(Report, id=report_id)
@@ -156,6 +163,37 @@ def edit_report(request, report_id):
   return render(request, "edit_report.html", context=data)
 
 
+def edit_reporter(request, reporter_civilid):
+  r = get_object_or_404(Reporter, civilid=reporter_civilid)
+  f = ReporterForm(request.POST or None, instance=r)
+
+  data = {
+    "form": f,
+    "reporter": r,
+  }
+
+  if f.is_valid():
+    reporter = f.save(commit=False)
+    reporter.save()
+    return redirect("show-reporter", reporter_civilid = reporter.civilid)
+  return render(request, "edit_reporter.html", context=data)
+
+def edit_receiver(request, receiver_ResCivilId):
+  r = get_object_or_404(Receiver, ResCivilId=receiver_ResCivilId)
+  f = ReceiverForm(request.POST or None, instance=r)
+
+  data = {
+    "form": f,
+    "receiver": r,
+  }
+
+  if f.is_valid():
+    receiver = f.save(commit=False)
+    receiver.save()
+    return redirect("show-receiver", receiver_ResCivilId = receiver.ResCivilId)
+  return render(request, "edit_receiver.html", context=data)
+
+# Delete
 
 
 def delete_report(request, report_id):

@@ -9,11 +9,83 @@
 
 
   <p><strong><a href="/report/locations/0/"> Kuwait City </a>  </strong></p>
+{% for r in reports %}
+{% if r.location == 0 %}
+  <ul>
+    <li>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+    </li>
+  </ul>
+
+{% endif %}
+{% endfor %}
   <p><strong><a href="/report/locations/1/">Al jahra </a></strong></p>
+
+{% for r in reports %}
+{% if r.location == 1 %}
+  <ul>
+    <li>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+    </li>
+  </ul>
+
+{% endif %}
+{% endfor %}
+
   <p><strong><a href="/report/locations/2/"> Hawalli </a></strong></p>
+
+{% for r in reports %}
+{% if r.location == 2 %}
+  <ul>
+    <li>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+    </li>
+  </ul>
+
+{% endif %}
+{% endfor %}
+
+
   <p><strong><a href="/report/locations/3/"> Farwaniyah </a></strong></p>
+
+{% for r in reports %}
+{% if r.location == 3 %}
+  <ul>
+    <li>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+    </li>
+  </ul>
+
+{% endif %}
+{% endfor %}
+
   <p><strong><a href="/report/locations/4/"> Mubarak Al-Kabeer </a></strong></p>
+
+{% for r in reports %}
+{% if r.location == 4 %}
+  <ul>
+    <li>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+    </li>
+  </ul>
+
+{% endif %}
+{% endfor %}
+
   <p><strong><a href="/report/locations/5/"> Al Ahmadi </a></strong></p>
+
+{% for r in reports %}
+{% if r.location == 5 %}
+  <ul>
+    <li>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+    </li>
+  </ul>
+
+{% endif %}
+{% endfor %}
+
+
 
 
 </body>

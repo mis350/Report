@@ -6,6 +6,12 @@
   <title>Reporter Info</title>
 </head>
 <body>
+
+<p><strong><h3><a href="/report/reporters/">Go Back to Reporter's List page</a></h3></strong></p>
+
+
+Reporter Information: 
+
   <p>Reporter Name: <strong>{{ reporter.name }}</strong></p>
   <p>Reporter ID: <strong>{{ reporter.civilid}}</strong></p>
 
@@ -15,6 +21,17 @@
     <li><a href="/report/show/report/{{o.id}}/"<strong>{{ o.Accident_Address }} </strong>></a></li>
   {% endfor %}
   </ul>
+
+
+
+  <table border=1 align="center">
+
+    <tr bgcolor="lightgrey">
+        <td align="center"><a href="/report/edit/reporter/{{ reporter.civilid }}/">Edit Reporter Info</a></td>
+
+    </tr>
+
+  </table> </p>
 
 
   <table border=1 align="center">

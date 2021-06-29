@@ -12,8 +12,8 @@ urlpatterns = [
 
 
     path('show/report/<int:report_id>/', views.report_details, name = 'show-report'),    
-    path('show/reporter/<int:reporter_civilid>/', views.reporter_details),
-    path('show/receiver/<int:receiver_ResCivilId>/', views.receiver_details),
+    path('show/reporter/<int:reporter_civilid>/', views.reporter_details, name = 'show-reporter'),
+    path('show/receiver/<int:receiver_ResCivilId>/', views.receiver_details, name = 'show-receiver'),
 
 
     path('roads/', views.roads),
@@ -29,6 +29,6 @@ urlpatterns = [
     path('delete/receiver/<int:receiver_ResCivilId>/',views.delete_receiver, name="delete-receiver"),
 
     path('edit/report/<int:report_id>/', views.edit_report, name = 'edit-report'),
-
-
+    path('edit/reporter/<int:reporter_civilid>/', views.edit_reporter, name = 'edit-report'),
+    path('edit/receiver/<int:receiver_ResCivilId>/', views.edit_receiver, name = 'edit-receiver'),
 ]
