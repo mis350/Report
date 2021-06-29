@@ -1,5 +1,5 @@
 from django import forms 
-from .models import Report , ReportStatus, Reporter
+from .models import Report , ReportStatus, Reporter, Receiver
 
 class ReportForm(forms.ModelForm):
   class Meta:
@@ -15,4 +15,9 @@ class ReportstatusForm(forms.ModelForm):
 class ReporterForm(forms.ModelForm):
   class Meta:
     model = Reporter
+    fields = "__all__"
+
+class ReceiverForm(forms.ModelForm):
+  class Meta:
+    model = Receiver
     fields = "__all__"
