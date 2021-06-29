@@ -8,12 +8,15 @@
 <body>
 
 
+ <p> <h2>
+ This is the reports statistic page organized according to Kuwait cities:
+  </h2> </p>
   <p><strong><a href="/report/locations/0/"> Kuwait City </a>  </strong></p>
 {% for r in reports %}
 {% if r.location == 0 %}
   <ul>
     <li>
-  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p> {{ r.created_on }}
     </li>
   </ul>
 
@@ -25,7 +28,7 @@
 {% if r.location == 1 %}
   <ul>
     <li>
-  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p> {{ r.created_on }}
     </li>
   </ul>
 
@@ -38,7 +41,7 @@
 {% if r.location == 2 %}
   <ul>
     <li>
-  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p> {{ r.created_on }}
     </li>
   </ul>
 
@@ -52,7 +55,7 @@
 {% if r.location == 3 %}
   <ul>
     <li>
-  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p> {{ r.created_on }}
     </li>
   </ul>
 
@@ -65,7 +68,7 @@
 {% if r.location == 4 %}
   <ul>
     <li>
-  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p> {{ r.created_on }}
     </li>
   </ul>
 
@@ -78,7 +81,7 @@
 {% if r.location == 5 %}
   <ul>
     <li>
-  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p>
+  <p><strong> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a> </strong></p> {{ r.created_on }}
     </li>
   </ul>
 
