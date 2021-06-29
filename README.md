@@ -28,7 +28,7 @@ The program enables all citizens to play the role of a police officer. To speed 
 
 ## ER Diagram
 
-![Blank diagram (1)](https://user-images.githubusercontent.com/81953844/122884459-dcc4f980-d346-11eb-8380-d5d53c143e74.png)
+![Blank diagram (2)](https://user-images.githubusercontent.com/81953844/123878538-e7cfe900-d947-11eb-9ae6-e7f5a01daf05.png)
 
 
 
