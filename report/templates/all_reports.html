@@ -14,7 +14,8 @@
       </td>
     </tr>
     <tr bgcolor="lightgrey">
-        <td align="center">#</td>
+        <td align="center">ID</td>
+
         <td align="center">Location</td>
         <td align="center">Address</td>
         <td align="center">Status</td>
@@ -28,7 +29,8 @@
 
 
       <tr>
-        <td>{{ forloop.counter }}</td>  
+        <td>{{ r.id }}</td>  
+
       {% if r.location == 0 %}
         <td>{{ "Kuwait City" }}</td>        
       {%elif r.location == 1 %}  
@@ -87,6 +89,8 @@
     </tr>
 
   </table> </p>
+
+
 
 </body>
 </html>
