@@ -95,20 +95,14 @@ def receivers(request):
   return render(request, "receivers.html", context = data)
 
 
-#as a design only
-def all_receiver(request):
-  data={}
-  receiver = Receiver.objects.all
-  data['receiver'] = receiver
-  return render(request, "all_receiver.html", context=data)
 
 
 #As a filter
-def roads_status(request,road_id):
-  roadstatus = Report.objects.filter(RoadStatus = road_id)
-  data = {}
-  data["roads"] = roadstatus 
-  return render(request, "roads_status.html", context = data)
+#def roads_status(request,road_id):
+  #roadstatus = Report.objects.filter(RoadStatus = road_id)
+  #data = {}
+  #data["roads"] = roadstatus 
+  #return render(request, "roads_status.html", context = data)
  
 #Perfect
 def location_status(request,location_id):
