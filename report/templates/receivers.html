@@ -3,30 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Report Type</title>
+  <title>Reporters</title>
 </head>
 <body>
   
 
   <table border=1 align="center">
     <tr bgcolor="darkgrey">
-      <td colspan=3 align="center"> <strong>{{title}}</strong>
-
+      <td colspan=4 align="center"> <strong>Receivers</strong>
       </td>
     </tr>
     <tr bgcolor="lightgrey">
         <td align="center">#</td>
-        <td align="center">Report</td>
+        <td align="center">Receivers Name</td>
+        <td align="center">Receivers Civil ID</td>
+
 
     </tr>
-    {% for a in accident_type %}
+    {% for r in receviers %}
+
+
+
       <tr>
         <td>{{ forloop.counter }}</td>
-        <td>{{ title }}</td>
-      </tr>
+        <td><a href="/report/show/receiver/{{r.ResCivilId}}/">{{ r.ResName }}</a></td>       
+        <td>{{ r.ResCivilId }}</td> 
     {% endfor %}
 
   </table>
+
 
 </body>
 </html>

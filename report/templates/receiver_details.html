@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receiver Info</title>
+</head>
+<body>
+
+<p><h2><strong> Receiver Info: </strong></h2></p>
+
+
+
+<div id="customForm">
+        <fieldset class="name">
+            <legend> Receiver Name</legend>
+            <editor-field name="first_name">{{ receiver.ResName }}</editor-field>
+        </fieldset>
+        <fieldset class="office Position">
+            <legend> Receiver ID </legend>
+            <editor-field name="ID">{{ receiver.ResCivilId}}</editor-field>
+        </fieldset>
+        <fieldset class="hr">
+            <legend> Reports </legend>
+            <editor-field name="reports">  {% for o in report %}
+    <li><a href="/report/show/report/{{o.id}}/"<strong>{{ o.Accident_Address }} </strong>></a></li>
+  {% endfor %}</editor-field>
+            
+            
+        </fieldset>
+    </div>
+
+
+</body>
+</html>

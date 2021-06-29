@@ -1,33 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Report, ReportStatus , Reporter , Receiver
-from .models import Roads
+from .forms import ReportForm, ReportstatusForm, ReporterForm
 
 # Create your views here.
 
-#Proplems: Reporter name
+#perfect.
 def all_reports(request):
   data={}
   reports = Report.objects.all()
   data['reports'] = reports
-
   return render(request, "all_reports.html", context=data)
 
-#def all_reports2(request):
- # data={}
- # reporters = Reporter.objects.all()
- # reports = reporters.report_set.all()
- # data['reporters'] = reporters
- # data["reports"] = reports
-  #return render(request, "all_reports2.html", context=data)
-
-
-#No need - nothing showing
-#def new_reports(request):
- # data={}
-  #reports = ReportStatus.objects.filter(Accident_type=0)
-  #data['new_reports'] = reports
-  #return render(request, "new_reports.html", context=data)
+#perfect.
+def receiver_details(request, receiver_ResCivilId):
+  data={}
+  receiver = Receiver.objects.get(ResCivilId = receiver_ResCivilId)
+  reports = receiver.report_set.all()
+  data['report'] = reports
+  data['receiver'] = receiver
+  return render(request, "receiver_details.html", context=data)
 
 
 
@@ -36,7 +28,6 @@ def accident_type(request,type_id):
   data = {}
   type_list = ReportStatus.objects.filter(Accident_type = type_id)
 
-
   if type_id == 0:
     data["title"] = "New Report"
   elif type_id == 1:
@@ -44,28 +35,32 @@ def accident_type(request,type_id):
   else:
     data["title"] = "Done"
 
-
-
   data["accident_type"] = type_list
-  #data["report"] = type_list.report_set.all()
-
   return render(request, "accident_type.html", context = data)
 
 
 
-#works, but need more details like reporter and reciver name + Status not working
+# just add link inside to the reporter / receiver
 def report_details(request, report_id):
   data={}
   reports = Report.objects.get(id = report_id)
-  Accident_type = reports.reportstatus_set.all()
-  #reciver = status.receiver_set.all()
+  Acc_type = reports.reportstatus_set.all()
+  for a in Acc_type:
+    if a.Accident_type == 1:
+      data["Typee"] = "In Progress Report"
+    if a.Accident_type == 2:
+      data["Typee"] = "Done"
+    else:
+      data["Typee"] = "New Report"
+  
   data["reports"] = reports
-  data["Type"] = Accident_type
-
-  #data["reciver"] = reciver
+  data["Type"] = Acc_type 
   return render(request, "report_details.html", context = data)
 
 
+
+
+#perfect.
 def reporter_details(request, reporter_civilid):
   data={}
   reporters = Reporter.objects.get(civilid = reporter_civilid)
@@ -74,26 +69,83 @@ def reporter_details(request, reporter_civilid):
   data["report"] = report_list
   return render(request, "reporter_details.html", context = data)
 
-#WAit , nothing.
-def receiver_details(request, receiver_id):
+
+
+#perfect.
+def reporters(request):
   data={}
-  receiver = Receiver.objects.get(id = receiver_id)
-  status = receiver.reportstatus_set.all()
+  reporters = Reporter.objects.all()
+  #report_list = reporters.report_set.all()
+  data["reporters"] = reporters
+  #data["report"] = report_list
+  return render(request, "reporters.html", context = data)
+
+
+
+
+#perfect.
+def receivers(request):
+  data={}
+  receiver = Receiver.objects.all()
+  #status = receiver.reportstatus_set.all()
   #reciver = status.receiver_set.all()
-  data["recevier"] = receiver
-  data["status"] = status
+  data["receviers"] = receiver
+  #data["status"] = status
   #data["reciver"] = reciver
-  return render(request, "receiver_details.html", context = data)
+  return render(request, "receivers.html", context = data)
 
 
-def all_receiver(request):
+
+
+#As a filter
+#def roads_status(request,road_id):
+  #roadstatus = Report.objects.filter(RoadStatus = road_id)
+  #data = {}
+  #data["roads"] = roadstatus 
+  #return render(request, "roads_status.html", context = data)
+ 
+#Perfect
+def location_status(request,location_id):
+  locationstatus = Report.objects.filter(location = location_id)
+  data = {}
+  data["locations"] = locationstatus 
+  return render(request, "location_status.html", context = data)
+
+def roads(request):
   data={}
-  receiver = Receiver.objects.all
-  data['receiver'] = receiver
-  return render(request, "all_receiver.html", context=data)
+  reports = Report.objects.all()
+  data['reports'] = reports
+  return render(request, "roads.html", context=data)
 
-def all_roads(request):
+def add_report(request):
   data={}
-  roads = Roads.objects.all
-  data['roads'] = roads
-  return render(request, "all_roads.html", context=data)
+  f = ReportForm(request.POST or None)
+  data["form"] = f
+  if f.is_valid():
+    f.save()
+    return redirect("all-reports")
+  return render(request, "add_report.html", context = data)
+
+
+
+
+def update_status(request):
+  data={}
+  f = ReportstatusForm(request.POST or None)
+  data["form"] = f
+  if f.is_valid():
+    f.save()
+    return redirect("all-reports")
+  return render(request, "update_status.html", context = data)
+
+
+def add_reporter(request):
+  data={}
+  f = ReporterForm(request.POST or None)
+  data["form"] = f
+  if f.is_valid():
+    f.save()
+    return redirect("all-reporters")
+  return render(request, "add_reporter.html", context = data)
+
+
