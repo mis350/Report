@@ -4,7 +4,7 @@ from .models import Report , ReportStatus, Reporter
 class ReportForm(forms.ModelForm):
   class Meta:
     model = Report
-    fields = "__all__"
+    fields = ['location', 'Accident_Address', 'Accident_Describtion', 'status', 'RoadStatus', 'reporter']
     
 
 class ReportstatusForm(forms.ModelForm):

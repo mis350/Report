@@ -25,8 +25,8 @@
 
 
       <tr>
-        <td>{{ forloop.counter }}</td>      
-        <td>{{ r.ResName}}</td> 
+        <td>{{ forloop.counter }}</td>
+        <td><a href="/report/show/receiver/{{r.ResCivilId}}/">{{ r.ResName }}</a></td>       
         <td>{{ r.ResCivilId }}</td> 
     {% endfor %}
 

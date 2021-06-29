@@ -18,7 +18,7 @@ class ReporterAdmin(admin.ModelAdmin):
 
 @admin.register(Report)
 class RportAdmin(admin.ModelAdmin):
-  list_display = ('location', 'reporter', 'status', 'created_on', 'RoadStatus')
+  list_display = ('id','location','Accident_Address', 'reporter', 'status', 'created_on', 'RoadStatus')
   list_filter = ('status','location','RoadStatus')
   search_fields = ('location',)
   inlines = (ReportStatusInLine,)

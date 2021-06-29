@@ -5,28 +5,21 @@ from .forms import ReportForm, ReportstatusForm, ReporterForm
 
 # Create your views here.
 
-#Proplems: Reporter name
+#perfect.
 def all_reports(request):
   data={}
   reports = Report.objects.all()
   data['reports'] = reports
   return render(request, "all_reports.html", context=data)
 
-#def all_reports2(request):
- # data={}
- # reporters = Reporter.objects.all()
- # reports = reporters.report_set.all()
- # data['reporters'] = reporters
- # data["reports"] = reports
-  #return render(request, "all_reports2.html", context=data)
-
-
-#No need - nothing showing
-#def new_reports(request):
- # data={}
-  #reports = ReportStatus.objects.filter(Accident_type=0)
-  #data['new_reports'] = reports
-  #return render(request, "new_reports.html", context=data)
+#perfect.
+def receiver_details(request, receiver_ResCivilId):
+  data={}
+  receiver = Receiver.objects.get(ResCivilId = receiver_ResCivilId)
+  reports = receiver.report_set.all()
+  data['report'] = reports
+  data['receiver'] = receiver
+  return render(request, "receiver_details.html", context=data)
 
 
 
@@ -34,7 +27,6 @@ def all_reports(request):
 def accident_type(request,type_id):
   data = {}
   type_list = ReportStatus.objects.filter(Accident_type = type_id)
-  #report = type_list.report_set.all()
 
   if type_id == 0:
     data["title"] = "New Report"
@@ -43,22 +35,16 @@ def accident_type(request,type_id):
   else:
     data["title"] = "Done"
 
-
-
   data["accident_type"] = type_list
-  #data["report"] = report
-  #data["report"] = type_list.report_set.all()
-
   return render(request, "accident_type.html", context = data)
 
 
 
-#works, but need more details like reporter and reciver name + Status not working
+# just add link inside to the reporter / receiver
 def report_details(request, report_id):
   data={}
   reports = Report.objects.get(id = report_id)
   Acc_type = reports.reportstatus_set.all()
-
   for a in Acc_type:
     if a.Accident_type == 1:
       data["Typee"] = "In Progress Report"
@@ -67,14 +53,14 @@ def report_details(request, report_id):
     else:
       data["Typee"] = "New Report"
   
-  #reciver = status.receiver_set.all()
   data["reports"] = reports
   data["Type"] = Acc_type 
-
-  #data["reciver"] = reciver
   return render(request, "report_details.html", context = data)
 
 
+
+
+#perfect.
 def reporter_details(request, reporter_civilid):
   data={}
   reporters = Reporter.objects.get(civilid = reporter_civilid)
@@ -85,7 +71,7 @@ def reporter_details(request, reporter_civilid):
 
 
 
-
+#perfect.
 def reporters(request):
   data={}
   reporters = Reporter.objects.all()
@@ -97,7 +83,7 @@ def reporters(request):
 
 
 
-#WAit , nothing.
+#perfect.
 def receivers(request):
   data={}
   receiver = Receiver.objects.all()
@@ -109,19 +95,33 @@ def receivers(request):
   return render(request, "receivers.html", context = data)
 
 
-
+#as a design only
 def all_receiver(request):
   data={}
   receiver = Receiver.objects.all
   data['receiver'] = receiver
   return render(request, "all_receiver.html", context=data)
 
-def all_roads(request):
-  data={}
-  roads = Roads.objects.all
-  data['roads'] = roads
-  return render(request, "all_roads.html", context=data)
 
+#As a filter
+def roads_status(request,road_id):
+  roadstatus = Report.objects.filter(RoadStatus = road_id)
+  data = {}
+  data["roads"] = roadstatus 
+  return render(request, "roads_status.html", context = data)
+ 
+#Perfect
+def location_status(request,location_id):
+  locationstatus = Report.objects.filter(location = location_id)
+  data = {}
+  data["locations"] = locationstatus 
+  return render(request, "location_status.html", context = data)
+
+def roads(request):
+  data={}
+  reports = Report.objects.all()
+  data['reports'] = reports
+  return render(request, "roads.html", context=data)
 
 def add_report(request):
   data={}
@@ -144,6 +144,7 @@ def update_status(request):
     return redirect("all-reports")
   return render(request, "update_status.html", context = data)
 
+
 def add_reporter(request):
   data={}
   f = ReporterForm(request.POST or None)
@@ -152,3 +153,5 @@ def add_reporter(request):
     f.save()
     return redirect("all-reporters")
   return render(request, "add_reporter.html", context = data)
+
+

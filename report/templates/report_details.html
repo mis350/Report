@@ -7,36 +7,61 @@
 </head>
 <body>
   
-  <p>Address: <strong>{{ reports.Accident_Address }}</strong></p>
 
-{% if reports.location == 0 %}
-  <p>location: <strong>{{ "Kuwait City" }}</strong></p>
+<p><h2><strong> Report Details: </strong></h2></p>
+
+
+
+<div id="customForm">
+        <fieldset class="name">
+            <legend> Report Location:</legend>
+            <editor-field name="location">
+              {% if reports.location == 0 %}
+  <p> <strong>{{ "Kuwait City" }}</strong></p>
 {% elif reports.location == 1 %}
-  <p>location: <strong>{{ "Al Jahra" }}</strong></p>
+  <p> <strong>{{ "Al Jahra" }}</strong></p>
 {% elif reports.location == 2 %}
-  <p>location: <strong>{{ "Hawalli" }}</strong></p>
+  <p> <strong>{{ "Hawalli" }}</strong></p>
 {% elif reports.location == 3 %}
-  <p>location: <strong>{{ "Farwaniyah" }}</strong></p>
+  <p> <strong>{{ "Farwaniyah" }}</strong></p>
 {% elif reports.location == 4 %}
-  <p>location: <strong>{{ "Mubarak Al-Kabeer" }}</strong></p>
+  <p> <strong>{{ "Mubarak Al-Kabeer" }}</strong></p>
 {% elif reports.location == 5 %}
-  <p>location: <strong>{{ "Al Ahmadi" }}</strong></p>
+  <p> <strong>{{ "Al Ahmadi" }}</strong></p>
 {% endif %}
-
-{% if reports.status == 0 %}
-  <p>status: <strong>{{ "Two Car Crash" }}</strong></p>
-{% elif reports.status == 1 %}
-  <p>status: <strong>{{ "Multi Car Crash" }}</strong></p>
-{% elif reports.status == 2 %}
-  <p>status: <strong>{{ "Car crash with Injur" }}</strong></p>
-{% elif reports.Status == 3 %}
-  <p>status: <strong>{{ "Car crash with Death" }}</strong></p>
-{% elif reports.location == 4 %}
-  <p>status: <strong>{{ "Car crash with Fire" }}</strong></p>
-{% endif %}
+            </editor-field>
+        </fieldset>
 
 
-  <p>Type: <strong>{{ Typee }}</strong></p>
+        <fieldset class="Address">
+            <legend> Report Address: </legend>
+            <editor-field name="Address">
+              <p><strong>{{ reports.Accident_Address }} </strong></p>
+              </editor-field>
+        </fieldset>
+
+        <fieldset class="office Position">
+            <legend> Report Type </legend>
+            <editor-field name="Type">  <p><strong>{{ Typee }}</strong></p></editor-field>
+        </fieldset>
+
+        <fieldset class="office Position">
+            <legend> Road Status </legend>
+            <editor-field name="status">  
+              {% if reports.RoadStatus == 0 %}
+  <p> <strong>{{ "No Traffic Delays" }}</strong></p>
+{%elif reports.RoadStatus == 1 %}  
+  <p><strong>{{ "Medium Amount of Traffic" }}</strong></p>
+{%elif reports.RoadStatus == 2 %} 
+  <p><strong>{{ "Traffic Delays" }}</strong></p>
+
+{% endif %} </editor-field>
+        </fieldset>
+ 
+    </div>
+
+  <p><strong><a href="/report/reports/">Go Back to All Reports page</a></strong></p>
+
 
 </body>
 </html>

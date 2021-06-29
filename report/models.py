@@ -47,7 +47,7 @@ class Report(models.Model):
     RSTATUS = (
         (0,"No Traffic Delays"),
         (1," Medium Amount of Traffic"),
-        (2, " traffic delays"),
+        (2, " Traffic Delays"),
     )
 
 
