@@ -1,6 +1,3 @@
-{% extends "base.html"%}
-
-{% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +7,11 @@
   <title>Receiver Info</title>
 </head>
 <body>
+
+
+      <p><strong><a href="/report/receivers/">Go Back to Receiver's List page</a></strong></p>
+
+
 
 <p><h2><strong> Receiver Info: </strong></h2></p>
 
@@ -34,6 +36,28 @@
         </fieldset>
     </div>
 
-  {% endblock %}
+
+  <p>
+
+  <table border=1 align="center">
+
+    <tr bgcolor="lightgrey">
+        <td align="center"><a href="/report/edit/receiver/{{receiver.ResCivilId}}/">Edit Receiver Info</a></td>
+
+    </tr>
+
+  </table> </p>
+
+  <p>
+
+  <table border=1 align="center">
+
+    <tr bgcolor="lightgrey">
+        <td align="center"><a href="/report/delete/receiver/{{receiver.ResCivilId}}/">Delete Receiver</a></td>
+
+    </tr>
+
+  </table> </p>
+
 </body>
 </html>
