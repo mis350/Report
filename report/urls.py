@@ -16,7 +16,7 @@ urlpatterns = [
     path('show/receiver/<int:receiver_ResCivilId>/', views.receiver_details, name = 'show-receiver'),
 
 
-    path('roads/', views.roads),
+    path('roads/', views.roads, name = "roads"),
     path('locations/<int:location_id>/', views.location_status),
 
 
