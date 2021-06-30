@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +11,76 @@
   <title>Roads</title>
 </head>
 <body>
+ <p><h3> Road's statistic which shows the reports received organized according to Kuwait cities.</h3></p>
 
 
-  <p><strong><a href="/report/locations/0/"> Kuwait City </a>  </strong></p>
-  <p><strong><a href="/report/locations/1/">Al jahra </a></strong></p>
-  <p><strong><a href="/report/locations/2/"> Hawalli </a></strong></p>
-  <p><strong><a href="/report/locations/3/"> Farwaniyah </a></strong></p>
-  <p><strong><a href="/report/locations/4/"> Mubarak Al-Kabeer </a></strong></p>
-  <p><strong><a href="/report/locations/5/"> Al Ahmadi </a></strong></p>
+  <p><h3><strong><a href="/report/locations/0/"> Kuwait City</a> </h3> </strong></p>
+{% for r in reports %}
+{% if r.location == 0 %}
 
-  {% endblock %}
+  <p><strong><li> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }} </a> 
+ </strong></p></li><p> {{ r.created_on }} </p>
+
+{% endif %}
+{% endfor %}
+
+
+  <p><h3><strong><a href="/report/locations/1/">Al jahra </a></h3></strong></p>
+
+{% for r in reports %}
+{% if r.location == 1 %}
+
+  <p><strong><li> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }} </a> 
+ </strong></p></li><p> {{ r.created_on }} </p>
+
+{% endif %}
+{% endfor %}
+
+  <p><h3><strong><a href="/report/locations/2/"> Hawalli </a></h3></strong></p>
+
+{% for r in reports %}
+{% if r.location == 2 %}
+
+  <p><strong><li> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }} </a> 
+ </strong></p></li><p> {{ r.created_on }} </p>
+
+{% endif %}
+{% endfor %}
+
+  <p><h3><strong><a href="/report/locations/3/"> Farwaniyah </a></h3></strong></p>
+
+{% for r in reports %}
+{% if r.location == 3 %}
+
+  <p><strong><li> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }} </a> 
+ </strong></p></li><p> {{ r.created_on }} </p>
+
+{% endif %}
+{% endfor %}
+
+
+  <p><h3><strong><a href="/report/locations/4/"> Mubarak Al-Kabeer </a></h3></strong></p>
+
+{% for r in reports %}
+{% if r.location == 4 %}
+
+  <p><strong><li> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }} </a> 
+ </strong></p></li><p> {{ r.created_on }} </p>
+
+{% endif %}
+{% endfor %}
+
+  <p><h3><strong><a href="/report/locations/5/"> Al Ahmadi </a></h3></strong></p>
+
+{% for r in reports %}
+{% if r.location == 5 %}
+
+  <p><strong><li> <a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }} </a> 
+ </strong></p></li><p> {{ r.created_on }} </p>
+
+{% endif %}
+{% endfor %}
 </body>
+{% endblock %}
+
 </html>

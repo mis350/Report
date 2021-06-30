@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,8 @@
 </head>
 <body>
   
+
+    <p><strong><a href="/report/reports/">Go Back to All Reports page</a></strong></p>
 
 <p><h2><strong> Report Details: </strong></h2></p>
 
@@ -64,8 +67,32 @@
  
     </div>
 
-  <p><strong><a href="/report/reports/">Go Back to All Reports page</a></strong></p>
 
-  {% endblock %}
+
+
+  <p>
+
+  <table border=1 align="center">
+
+    <tr bgcolor="lightgrey">
+        <td align="center"><a href="/report/edit/report/{{reports.id}}/">Edit Report</a></td>
+
+    </tr>
+
+  </table> </p>
+
+  <p>
+
+  <table border=1 align="center">
+
+    <tr bgcolor="lightgrey">
+        <td align="center"><a href="/report/delete/report/{{reports.id}}/">Delete Report</a></td>
+
+    </tr>
+
+  </table> </p>
+
 </body>
+
 </html>
+{% endblock %}

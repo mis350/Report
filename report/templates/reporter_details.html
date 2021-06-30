@@ -1,6 +1,4 @@
-{% extends "base.html"%}
 
-{% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +8,12 @@
   <title>Reporter Info</title>
 </head>
 <body>
+
+
+      <p><strong><a href="/report/reporters/">Go Back to Reporter's List page</a></strong></p>
+
+
+
   <p>Reporter Name: <strong>{{ reporter.name }}</strong></p>
   <p>Reporter ID: <strong>{{ reporter.civilid}}</strong></p>
 
@@ -19,6 +23,32 @@
     <li><a href="/report/show/report/{{o.id}}/"<strong>{{ o.Accident_Address }} </strong>></a></li>
   {% endfor %}
   </ul>
-  {% endblock %}
+
+
+
+  <p>
+
+  <table border=1 align="center">
+
+    <tr bgcolor="lightgrey">
+        <td align="center"><a href="/report/edit/reporter/{{reporter.civilid}}/">Edit Reporter Info</a></td>
+
+    </tr>
+
+  </table> </p>
+
+
+  <p>
+
+  <table border=1 align="center">
+
+    <tr bgcolor="lightgrey">
+        <td align="center"><a href="/report/delete/reporter/{{reporter.civilid}}/">Delete Reporter</a></td>
+
+    </tr>
+
+  </table> </p>
+
+
 </body>
 </html>
