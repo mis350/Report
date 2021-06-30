@@ -15,14 +15,15 @@ Also, one of the most important features the prgram provide is  a statistic show
 # Requirements:
 
 1.	Reporter can submit accident reports
-2.	Reporter will have civil ID, name, phone No, and address.
-3.	Report can be new, in processing, or achieved. 
-4.	Reporter can create/edit/delete a report using Admin interface
-5.	Website will show a list of new report.
-6.	Website will show a list of in-processing reports with a summary showing number of respondents.
-7.	Website will show a list of achieved reports with a summary showing number of respondents.
-8.	report is considered in-processing if explicitly set to in-processing or got a response
-9.	report is considered achieved if explicitly set to inactive or if 24hours has passed.
+2.	Reporter will have Civil ID, Name, Email, and address.
+3.	Report can be new, in processing, or achieved.
+4.	Reporter can create/edit/delete a report.
+5.	Website will show the reporter's information and their Civil ID linked to their report.
+6.	Website will show a list of reports containing the report details (location, address, report status, road status and the date).
+7.	Website will show the receiver's information and their Civil ID linked to their report. 
+8.	Reporters and receivers can edit or delete their information from the website
+9.	Website will show a statistic shows the road's status according to the received reports organized by Kuwaiti areas.
+
 
 
 
