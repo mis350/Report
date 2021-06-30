@@ -8,7 +8,7 @@ from .forms import ReportForm, ReporterForm, ReceiverForm
 
 
 
-#perfect.
+#perfect..
 def all_reports(request):
   data={}
   reports = Report.objects.all()
