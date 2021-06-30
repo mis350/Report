@@ -14,17 +14,15 @@
 
   <table border=1 align="center">
     <tr bgcolor="darkgrey">
-      <td colspan=6 align="center"> <strong>All Reports</strong>
+      <td colspan=4 align="center"> <strong>All Reports</strong>
       </td>
     </tr>
     <tr bgcolor="lightgrey">
         <td align="center">#</td>
+        <td align="center">Reporter</td>
         <td align="center">Location</td>
         <td align="center">Address</td>
         <td align="center">Status</td>
-        <td align="center">Road Status</td>
-        <td align="center">Created on</td>
-
 
     </tr>
     {% for r in reports %}
@@ -32,7 +30,12 @@
 
 
       <tr>
-        <td>{{ forloop.counter }}</td>  
+        <td>{{ forloop.counter }}</td> 
+
+      {% for re in reporter %} 
+        <td>{{ re.name }}</td> 
+      {% endfor %}
+      
       {% if r.location == 0 %}
         <td>{{ "Kuwait City" }}</td>        
       {%elif r.location == 1 %}  
@@ -48,7 +51,7 @@
       {% endif %}     
 
 
-        <td><a href="/report/show/report/{{r.id}}/">{{ r.Accident_Address }}</a></td>
+        <td>{{ r.Accident_Address }}</td>
 
 
       {% if r.status == 0 %}
@@ -62,35 +65,14 @@
       {%elif r.status == 4 %}  
         <td>{{ "Car crash with Fire" }}</td>
       {% endif %}
-
-
-
-      {% if r.RoadStatus == 0 %}
-        <td>{{ "No Traffic Delays" }}</td>        
-      {%elif r.RoadStatus == 1 %}  
-        <td>{{ "Medium Amount of Traffic" }}</td>
-      {%elif r.RoadStatus == 2 %} 
-        <td>{{ "Traffic Delays" }}</td> 
-      {% endif %} 
-        <td>{{ r.created_on }}</td>  
       </tr>
 
 
 
     {% endfor %}
-    {%endblock%}
+    {% endblock %}
   </table>
 
-<p>
 
-  <table border=1 align="center">
-
-    <tr bgcolor="lightgrey">
-        <td align="center"><a href="/report/add/report">Add Report</a></td>
-
-    </tr>
-
-  </table> </p>
-  
 </body>
 </html>

@@ -1,21 +1,26 @@
+{% extends "base.html"%}
+
+{% block content %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Receiver</title>
+  <title>Update Report Status</title>
 </head>
 <body>
 
 
-  <h2>Sing up as Receiver </h2>
+  <h2>Update Report Status</h2>
 <form action="" method="post">
 
   {{ form.as_p}}
   {% csrf_token %}
-  <input type="submit" value="Sing up">
+  <input type="submit" value="Confirmed">
 </form>
 
-
+{% endblock %}
 </body>
 </html>

@@ -2,41 +2,35 @@
 
 {% block content %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reporters</title>
+  <title>Document</title>
 </head>
 <body>
   
 
   <table border=1 align="center">
     <tr bgcolor="darkgrey">
-      <td colspan=4 align="center"> <strong>Receivers</strong>
+      <td colspan=3 align="center"> <strong>PUBLISHED POSTS</strong>
       </td>
     </tr>
     <tr bgcolor="lightgrey">
         <td align="center">#</td>
-        <td align="center">Receivers Name</td>
-        <td align="center">Receivers Civil ID</td>
-
+        <td align="center">Report</td>
 
     </tr>
-    {% for r in receviers %}
-
-
-
+    {% for r in reports %}
       <tr>
         <td>{{ forloop.counter }}</td>
-        <td><a href="/report/show/receiver/{{r.ResCivilId}}/">{{ r.ResName }}</a></td>       
-        <td>{{ r.ResCivilId }}</td> 
+        <td>{{ r.Accident_type }}</td>
+      </tr>
     {% endfor %}
-
+    {% endblock %}
   </table>
 
-    {% endblock %}
+
 </body>
 </html>
