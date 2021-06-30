@@ -7,9 +7,9 @@
 # Application Overview
 ## Report
 
-An Application used to report traffic accidents used by any user (the reporter). The Hot Line will recieve the report then it will be send to the accurate department suc as: raffic policeman, ambulance, firefighters according to the report status and description wich was written by the reporter. 
+An Application used to report traffic accidents used by any user (the reporter). The Hot Line will recieve the report then it will be send to the accurate department suc as: traffic policeman, ambulance, firefighters according to the report status and description wich was written by the reporter. 
 
-The program encourage all citizens to be responcibile. Also, to speed up rescue missions and reduce damages and losses. Citizens can send an incident by writting the adress and a describtoin for it. In the future we attend to add new features like: attaching a video or a photo, or an audio note. Also, the location of the accident and tracking system for the reporting person.
+The program encourage all citizens to be responcibile. Also, to speed up rescue missions and reduce damages and losses. Citizens can send an incident by writing the address and a description for it.. In the future we attend to add new features like: attaching a video or a photo, or an audio note. Also, the location of the accident and tracking system for the reporting person.
 Also, one of the most important features the prgram provide is  a statistic shows the road's status according to the recieved reports organized by Kuwaiti areas.  Wich gives the users a clear idea about the traffic areas to avoid it if possible.   
 
 # Requirements:
