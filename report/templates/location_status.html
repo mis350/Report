@@ -1,16 +1,16 @@
+{% extends "base.html"%}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Locations</title>
+  <title>Document</title>
 </head>
 <body>
   
-
-<p><strong><h3><a href="/report/roads/">Go Back to Statistics page</a></h3></strong></p>
-
-
 {% for r in locations %}
 {% if r.location == 0 %}
 <p><strong>Kuwait City</strong> Roads Status:</p>
@@ -72,6 +72,7 @@
 
 {% endif %}
 {% endfor %}
+{% endblock %}
 
 
 </body>

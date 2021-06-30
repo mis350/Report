@@ -1,3 +1,7 @@
+{% extends "base.html"%}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +11,6 @@
 </head>
 <body>
   
-
-
-<p><strong><h3><a href="/report/reports/">Go Back to All Reports page</a></h3></strong></p>
-
-
 
 <p><h2><strong> Report Details: </strong></h2></p>
 
@@ -45,34 +44,9 @@
               </editor-field>
         </fieldset>
 
-        <fieldset class="Address">
-            <legend> Report Date: </legend>
-            <editor-field name="Address">
-              <p><strong>{{ reports.created_on }} </strong></p>
-              </editor-field>
-        </fieldset>
-
         <fieldset class="office Position">
             <legend> Report Type </legend>
             <editor-field name="Type">  <p><strong>{{ Typee }}</strong></p></editor-field>
-        </fieldset>
-
-        <fieldset class="name">
-            <legend> Report Status:</legend>
-            <editor-field name="location">
-              {% if reports.status == 0 %}
-  <p> <strong>{{ "Two car crash" }}</strong></p>
-{% elif reports.status == 1 %}
-  <p> <strong>{{ "Multi car crash" }}</strong></p>
-{% elif reports.status == 2 %}
-  <p> <strong>{{ "Car crash with Injury" }}</strong></p>
-{% elif reports.status == 3 %}
-  <p> <strong>{{ "Car crash with Death" }}</strong></p>
-{% elif reports.status == 4 %}
-  <p> <strong>{{ "Car crash with Fire" }}</strong></p>
-
-{% endif %}
-            </editor-field>
         </fieldset>
 
         <fieldset class="office Position">
@@ -90,30 +64,8 @@
  
     </div>
 
-<p>
+  <p><strong><a href="/report/reports/">Go Back to All Reports page</a></strong></p>
 
-  <table border=1 align="center">
-
-    <tr bgcolor="lightgrey">
-        <td align="center"><a href="/report/edit/report/{{reports.id}}/">Edit</a></td>
-
-    </tr>
-
-  </table> </p>
-
-<p>
-
-  <table border=1 align="center">
-
-    <tr bgcolor="lightgrey">
-        <td align="center"><a href="/report/delete/report/{{reports.id}}/">Delete</a></td>
-
-    </tr>
-
-  </table> </p>
-
-
-
-
+  {% endblock %}
 </body>
 </html>
